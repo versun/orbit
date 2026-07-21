@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <radialGradient id="esGround" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2C2F5A"/>
+      <stop offset="100%" stop-color="#2C2F5A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="esBall" cx="40%" cy="28%" r="80%">
+      <stop offset="0%" stop-color="#8E94D8"/>
+      <stop offset="55%" stop-color="#5C619E"/>
+      <stop offset="100%" stop-color="#454A82"/>
+    </radialGradient>
+    <linearGradient id="esFlag" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFC65C"/>
+      <stop offset="100%" stop-color="#F0932B"/>
+    </linearGradient>
+  </defs>
+  <!-- soft shadow pit -->
+  <ellipse cx="300" cy="308" rx="210" ry="46" fill="url(#esGround)"/>
+  <ellipse cx="300" cy="306" rx="150" ry="30" fill="#23264B" opacity="0.85"/>
+  <!-- deflated clay planet lying in the pit -->
+  <g>
+    <ellipse cx="292" cy="270" rx="118" ry="62" fill="url(#esBall)"/>
+    <!-- squashed top dents -->
+    <ellipse cx="252" cy="228" rx="34" ry="14" fill="#3B3F73" opacity="0.65"/>
+    <ellipse cx="330" cy="240" rx="24" ry="10" fill="#3B3F73" opacity="0.5"/>
+    <!-- cream highlight remnant -->
+    <ellipse cx="240" cy="238" rx="26" ry="10" fill="#B9BCE8" opacity="0.35" transform="rotate(-12 240 238)"/>
+    <!-- little crack lines -->
+    <path d="M300 246 q 10 14 4 30" stroke="#2C2F5A" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M268 252 q -8 12 -2 24" stroke="#2C2F5A" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+  </g>
+  <!-- tiny flag stuck beside -->
+  <g transform="rotate(6 424 200)">
+    <rect x="420" y="176" width="7" height="118" rx="3.5" fill="#8E94D8"/>
+    <path d="M427 178 h64 a6 6 0 0 1 6 6 v22 a6 6 0 0 1 -6 6 h-64 z" fill="url(#esFlag)"/>
+    <circle cx="448" cy="195" r="7" fill="#4A3418" opacity="0.35"/>
+  </g>
+  <!-- floating dust puffs -->
+  <circle cx="180" cy="200" r="9" fill="#4A4F8C" opacity="0.55"/>
+  <circle cx="160" cy="176" r="5.5" fill="#4A4F8C" opacity="0.4"/>
+  <circle cx="430" cy="150" r="6.5" fill="#4A4F8C" opacity="0.45"/>
+  <!-- stars -->
+  <circle cx="120" cy="96" r="3" fill="#F2F1FF" opacity="0.7"/>
+  <circle cx="486" cy="84" r="2.5" fill="#F2F1FF" opacity="0.55"/>
+  <circle cx="530" cy="140" r="2" fill="#F2F1FF" opacity="0.4"/>
+  <circle cx="82" cy="150" r="2" fill="#F2F1FF" opacity="0.4"/>
+</svg>

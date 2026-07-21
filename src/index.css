@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ---- Orbit Clay · 暗夜黏土（默认主题） ---- */
+    --bg-deep: #23264B;
+    --bg-deep-2: #2E2A5E;
+    --clay-surface: #3B3F73;
+    --clay-surface-hi: #4A4F8C;
+    --clay-inset: #2C2F5A;
+    --accent-sun: #FFC65C;
+    --accent-ice: #8BD3FF;
+    --accent-coral: #FF9E8A;
+    --accent-mint: #9DE8C6;
+    --text-primary: #F2F1FF;
+    --text-secondary: #B9BCE8;
+    --text-muted: #7E82B8;
+
+    /* 圆角阶梯 */
+    --r-sm: 16px;
+    --r-md: 24px;
+    --r-lg: 32px;
+    --r-xl: 44px;
+    --r-full: 999px;
+
+    /* 黏土阴影配方（全站统一） */
+    --clay-shadow:
+      14px 14px 32px rgba(13, 14, 36, 0.55),
+      -10px -10px 24px rgba(116, 124, 255, 0.14),
+      inset 2px 2px 6px rgba(255, 255, 255, 0.16),
+      inset -6px -6px 14px rgba(10, 11, 30, 0.35);
+    --clay-shadow-hover:
+      16px 16px 38px rgba(13, 14, 36, 0.64),
+      -12px -12px 28px rgba(116, 124, 255, 0.17),
+      inset 2px 2px 7px rgba(255, 255, 255, 0.2),
+      inset -6px -6px 15px rgba(10, 11, 30, 0.42);
+    --clay-inset-shadow:
+      inset 6px 6px 14px rgba(13, 14, 36, 0.5),
+      inset -4px -4px 10px rgba(116, 124, 255, 0.1);
+
+    /* shadcn tokens (暗) */
+    --background: 237 36% 22%;
+    --foreground: 240 29% 97%;
+    --card: 235 32% 34%;
+    --card-foreground: 240 29% 97%;
+    --popover: 235 32% 34%;
+    --popover-foreground: 240 29% 97%;
+    --primary: 39 100% 68%;
+    --primary-foreground: 32 50% 19%;
+    --secondary: 236 30% 42%;
+    --secondary-foreground: 240 29% 97%;
+    --muted: 236 22% 40%;
+    --muted-foreground: 237 25% 72%;
+    --accent: 236 30% 42%;
+    --accent-foreground: 240 29% 97%;
+    --destructive: 9 100% 77%;
+    --destructive-foreground: 32 50% 19%;
+    --border: 236 25% 45%;
+    --input: 236 25% 45%;
+    --ring: 39 100% 68%;
+    --radius: 1.5rem;
+  }
+
+  [data-theme='light'] {
+    /* ---- 晨光黏土（亮主题） ---- */
+    --bg-deep: #E9EDF9;
+    --bg-deep-2: #F4F6FF;
+    --clay-surface: #FFFFFF;
+    --clay-surface-hi: #F4F6FF;
+    --clay-inset: #DDE3F5;
+    --accent-sun: #F5A623;
+    --accent-ice: #3FA9F5;
+    --text-primary: #2B2E5E;
+    --text-secondary: #5A5E8F;
+    --text-muted: #8B8FBF;
+
+    --clay-shadow:
+      14px 14px 32px rgba(120, 130, 190, 0.28),
+      -10px -10px 24px rgba(255, 255, 255, 0.9),
+      inset 2px 2px 6px rgba(255, 255, 255, 0.95),
+      inset -6px -6px 14px rgba(150, 160, 210, 0.25);
+    --clay-shadow-hover:
+      16px 16px 38px rgba(120, 130, 190, 0.34),
+      -12px -12px 28px rgba(255, 255, 255, 0.95),
+      inset 2px 2px 7px rgba(255, 255, 255, 1),
+      inset -6px -6px 15px rgba(150, 160, 210, 0.3);
+    --clay-inset-shadow:
+      inset 6px 6px 14px rgba(140, 150, 200, 0.3),
+      inset -4px -4px 10px rgba(255, 255, 255, 0.85);
+
+    --background: 226 47% 95%;
+    --foreground: 236 36% 27%;
+    --card: 0 0% 100%;
+    --card-foreground: 236 36% 27%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 236 36% 27%;
+    --primary: 38 91% 55%;
+    --primary-foreground: 32 50% 19%;
+    --secondary: 228 45% 96%;
+    --secondary-foreground: 236 36% 27%;
+    --muted: 228 40% 92%;
+    --muted-foreground: 234 22% 46%;
+    --accent: 228 45% 96%;
+    --accent-foreground: 236 36% 27%;
+    --border: 230 35% 86%;
+    --input: 230 35% 86%;
+    --ring: 38 91% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply font-body text-ink;
+    background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-deep-2) 100%);
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  /* 全局绒面噪点（5% 不透明度） */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    background-image: url('/noise-texture.png');
+    background-repeat: repeat;
+    background-size: 512px 512px;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Baloo 2', 'Noto Sans SC', sans-serif;
+  }
+
+  ::selection {
+    background: rgba(255, 198, 92, 0.35);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--clay-surface-hi);
+    border-radius: 999px;
+    border: 2px solid var(--bg-deep);
+  }
+
+  input[type='date'] {
+    color-scheme: dark;
+  }
+  [data-theme='light'] input[type='date'] {
+    color-scheme: light;
+  }
+}
+
+@layer components {
+  /* 外凸黏土块 */
+  .clay-panel {
+    background: var(--clay-surface);
+    border-radius: var(--r-lg);
+    box-shadow: var(--clay-shadow);
+  }
+  .clay-panel-hover {
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  }
+  .clay-panel-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--clay-shadow-hover);
+  }
+  /* 内凹黏土槽 */
+  .clay-sunk {
+    background: var(--clay-inset);
+    box-shadow: var(--clay-inset-shadow);
+  }
+  /* 等宽数据字体（Tabular figures） */
+  .font-num {
+    font-family: 'DM Mono', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+  /* 横向滚动卡带隐藏滚动条 */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* 黏土滑块：8px 内凹滑轨 + 28px 球形拇指 */
+  .clay-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 44px; /* 触控热区 */
+    background: transparent;
+    cursor: pointer;
+  }
+  .clay-slider::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--clay-inset);
+    box-shadow: var(--clay-inset-shadow);
+  }
+  .clay-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    margin-top: -10px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 34% 28%, #fff4d9, var(--accent-sun) 58%, #e09112);
+    box-shadow: 0 4px 10px rgba(13, 14, 36, 0.5), inset -3px -4px 6px rgba(120, 60, 0, 0.35);
+    transition: transform 0.2s ease;
+  }
+  .clay-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.12);
+  }
+  .clay-slider::-moz-range-track {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--clay-inset);
+    box-shadow: var(--clay-inset-shadow);
+  }
+  .clay-slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 999px;
+    background: radial-gradient(circle at 34% 28%, #fff4d9, var(--accent-sun) 58%, #e09112);
+    box-shadow: 0 4px 10px rgba(13, 14, 36, 0.5), inset -3px -4px 6px rgba(120, 60, 0, 0.35);
+  }
+}
