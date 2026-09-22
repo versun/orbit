@@ -93,8 +93,11 @@ export default function Footer() {
         </motion.div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-content border-t border-white/10 pt-6 text-center">
+      <div className="footer mx-auto mt-12 max-w-content border-t border-white/10 pt-6 text-center">
         <p className="font-num text-xs tracking-wider text-ink-mute">
+          Made with ❤️ <a href="https://versun.me" target="_blank" rel="noreferrer" className="text-ink-soft transition-colors hover:text-sun hover:underline">Versun</a> · <a href="https://github.com/versun/orbit" target="_blank" rel="noreferrer" className="text-ink-soft transition-colors hover:text-sun hover:underline">Opensource at Github</a> · v20260922
+        </p>
+        <p className="font-num mt-2 text-[11px] tracking-wider text-ink-mute/70">
           © 2026 Orbit Clay · 模拟数据为近似开普勒根数计算，仅供科普演示
         </p>
       </div>
